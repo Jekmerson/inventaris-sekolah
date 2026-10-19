@@ -1,0 +1,81 @@
+{
+  "name": "inventaris-app",
+  "version": "1.0.0",
+  "description": "Aplikasi Inventaris Sekolah",
+  "author": "Inventaris Team",
+  "license": "MIT",
+  "main": "main/index.js",
+  "homepage": "/",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "concurrently \"npm run server-dev\" \"npm run react-start\"",
+    "dev:electron": "node scripts/dev.js",
+    "build": "npm run react-build",
+    "build:electron": "npm run react-build && electron-builder build --win",
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "server-start": "node server/index.js",
+    "server-dev": "nodemon server/index.js",
+    "electron-start": "electron .",
+    "postinstall": "electron-builder install-app-deps || exit 0",
+    "init-db": "node scripts/init-db.js",
+    "generate-license": "node scripts/generate-license.js"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0",
+    "axios": "^1.6.0",
+    "date-fns": "^2.30.0",
+    "express": "^4.18.2",
+    "sql.js": "^1.10.0",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "csv-writer": "^1.6.0",
+    "pdfkit": "^0.13.0",
+    "node-machine-id": "^1.1.12",
+    "node-cron": "^3.0.3"
+  },
+  "devDependencies": {
+    "electron": "^27.1.0",
+    "electron-builder": "^24.9.1",
+    "react-scripts": "5.0.1",
+    "concurrently": "^8.2.2",
+    "wait-on": "^7.2.0",
+    "nodemon": "^3.0.2",
+    "cross-env": "^7.0.3"
+  },
+  "build": {
+    "appId": "com.inventaris.sekolah",
+    "productName": "Inventaris Sekolah",
+    "directories": {
+      "buildResources": "public",
+      "output": "dist"
+    },
+    "files": [
+      "build/**/*",
+      "main/**/*",
+      "server/**/*",
+      "database/schema.sql",
+      "database/seeds.sql",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "public/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "browserslist": {
+    "production": ["last 1 electron version"],
+    "development": ["last 1 electron version"]
+  }
+}

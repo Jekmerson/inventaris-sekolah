@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1F2937" />
+  <meta name="description" content="Aplikasi Inventaris Sekolah - Kelola inventaris sekolah dengan mudah dan efisien" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>Inventaris Sekolah</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif; background: #080C14; color: #F1F5F9; }
+    #splash-screen {
+      position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      z-index: 9999; transition: opacity 0.5s ease;
+    }
+    #splash-screen .spinner {
+      width: 48px; height: 48px; border: 3px solid rgba(59,130,246,0.2);
+      border-top-color: #3B82F6; border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <noscript>Anda perlu mengaktifkan JavaScript untuk menjalankan aplikasi ini.</noscript>
+  <div id="splash-screen"><div class="spinner"></div></div>
+  <div id="root"></div>
+</body>
+</html>
